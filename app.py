@@ -28,9 +28,8 @@ def image_process():
     model = Models.load_model('intel_weights.h5')
     predictions = model.predict(img_array)
     score = tf.nn.softmax(predictions[0])
-    print(predictions)
-    print("This image most likely belongs to {}".format(classes[np.argmax(score)]))
-    return 'Image Saved',200
+    #print(predictions)
+    return "This image most likely belongs to {}".format(classes[np.argmax(score)]),200
 
 if __name__ == '__main__':
   app.run(debug=True)
