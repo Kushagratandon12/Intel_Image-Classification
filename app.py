@@ -44,4 +44,4 @@ def image_process():
     return 'The Image Send Is {}'.format(classes[pred]),200
 
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run()
