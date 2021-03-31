@@ -10,7 +10,7 @@ classes = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']
 #
 
 app = Flask(__name__)
-app.config["IMAGE_UPLOADS"] = "pred_images/"
+app.config[""] = " "
 cors = CORS(app)
 
 
@@ -23,7 +23,7 @@ def image_process():
     image = request.files['image']
     image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
     # Pre-Process The Image
-    image = cv2.imread('pred_images/'+image.filename)
+    image = cv2.imread(' '+image.filename)
     img = cv2.resize(image, (160, 160))
     img = img/255.0
     # LOAD THE TENSORFLOW LITE MODEL
