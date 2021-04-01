@@ -24,7 +24,6 @@ def image_process():
     # print(type(img))
     predictions = model_pred(image_path)
     return 'The Image Predicted By Model Is Of {}'.format(predictions), 200
-    # return 'Tensorflow Working', 200
 
 
 if __name__ == '__main__':

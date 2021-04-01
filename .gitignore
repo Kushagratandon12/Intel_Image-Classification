@@ -1,6 +1,6 @@
 env/
 model_weights/
 .vscode/
-__pycache__/
+__pycache__
 *.pyc
 intel_model/
