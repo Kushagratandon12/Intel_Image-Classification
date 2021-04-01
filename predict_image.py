@@ -8,7 +8,7 @@ classes = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']
 # -----------------------------------------------------------------------
 
 
-saved_model = load_model('F:\Intel_Image-Classification\intel_model')
+saved_model = load_model('intel_model')
 shape=(256,256)
 
 def decode_img(image_path,shape):
