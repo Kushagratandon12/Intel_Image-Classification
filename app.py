@@ -4,9 +4,10 @@ from tensorflow import keras
 import tensorflow.keras.preprocessing.image as preprocessing
 from flask import Flask, request, send_file
 import os
+from predict_image import model_pred
 
 app = Flask(__name__)
-app.config[""] = " "
+app.config["IMAGE_UPLOADS"] = "store_images/"
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -19,13 +20,12 @@ def image_process():
     image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
 
     # Pre-Process The Image Using Tensorflow->Keras->Image->Preprocessing_Function
-    img = preprocessing.load_img(image.filename)
-    print(type(img))
-
-    # predictions = model_pred(img)
+    image_path = 'store_images/' + image.filename
+    # print(type(img))
+    predictions = model_pred(image_path)
     # return 'The Image Predicted By Model Is Of {}'.format(predictions), 200
     return 'Tensorflow Working', 200
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
