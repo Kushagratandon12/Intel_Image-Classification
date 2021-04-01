@@ -1,0 +1,9 @@
+name : app
+
+channels : 
+  -conda-forge
+  -anaconda
+
+  dependencies : 
+  -pip:
+    - -r file:requirements.txt
