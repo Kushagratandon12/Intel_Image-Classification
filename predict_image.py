@@ -9,11 +9,18 @@ classes = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']
 
 
 saved_model = load_model('model_weights\model.h5')
+shape=(256,256)
+
+def decode_img(image_path,shape):
+    img = tf.keras.preprocessing.image.load_img(image_path,target_size=(shape))
+    img = tf.keras.preprocessing.image.img_to_array(img) # converted to ndarray 
+    img = img.astype(np.float32)/255.0
+    img = np.expand_dims(img,axis=0)
+    return img
 
 
 def model_pred(image_path):
-    image.load_img(image_path, target_size=(160, 160))
-    img = image.img_to_array(img)
-    img = np.expand_dims(img, axis=0)
-    idx = np.argmax(saved_model.predict(img, batch_size=5))
-    print(idx)
+    img = decode_img(image_path,shape)
+    pred = saved_model.predict(img)
+    idx = np.argmax(pred)
+    print(classes[idx])
