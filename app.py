@@ -23,9 +23,9 @@ def image_process():
     image_path = 'store_images/' + image.filename
     # print(type(img))
     predictions = model_pred(image_path)
-    # return 'The Image Predicted By Model Is Of {}'.format(predictions), 200
-    return 'Tensorflow Working', 200
+    return 'The Image Predicted By Model Is Of {}'.format(predictions), 200
+    # return 'Tensorflow Working', 200
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)

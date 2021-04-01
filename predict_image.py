@@ -8,7 +8,7 @@ classes = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']
 # -----------------------------------------------------------------------
 
 
-saved_model = load_model('model_weights\model.h5')
+saved_model = load_model('F:\Intel_Image-Classification\intel_model')
 shape=(256,256)
 
 def decode_img(image_path,shape):
@@ -24,3 +24,5 @@ def model_pred(image_path):
     pred = saved_model.predict(img)
     idx = np.argmax(pred)
     print(classes[idx])
+    predictions = classes[idx]
+    return predictions
